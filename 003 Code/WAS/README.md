@@ -8,24 +8,24 @@ Hospetter에서 의사와 환자 간의 화상진단이 이루어져야 함.
 backend: node.js를 이용하여 hospetter의 회원을 생성 및 관리하며, 각 회원에게 맞는 정보 제공
 frontend: 주로 bootstrap을 이용하여 디자인
 
-### contents
+## Contents
+### mediasoup-webrtc
 
 **mediasoup-webrtc**
 webrtc service using mediasoup
 
-연결이 발생하면(무조건 초기화 실행)
-
+- 연결
 ```
 io.on('connection', (socket) => {
     해당 룸의 id가 이미 존재하는지 확인
 
     존재하지 않는다면,
-        룸 생성
+        - 룸 생성
 
-        getMideasoupWorker로부터 워커 받아옴
+        - getMideasoupWorker로부터 워커 받아옴
 
-        룸 id 설정
+        - 룸 id 설정
 
-        소켓정보전달
+        - 소켓정보전달
 })
 ```
