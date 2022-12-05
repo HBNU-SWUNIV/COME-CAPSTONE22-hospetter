@@ -1,5 +1,5 @@
 # 한밭대학교 컴퓨터공학과 hospetter팀
-<img src="https://img.shields.io/badge/Express-#339933?style=for-the-badge&logo=Express&logoColor=white">
+<img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white"><img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white"><img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=Express&logoColor=white"><img src="https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white"><img src="https://img.shields.io/badge/WebRTC-333333?style=for-the-badge&logo=webrtc&logoColor=white"><img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"><img src="https://img.shields.io/badge/Espressif-E7352C?style=for-the-badge&logo=espressif&logoColor=white">
 
 **팀 구성**
 - 20197125 김현민
@@ -34,7 +34,8 @@
     - DB Server
       * (Hardware) Raspberry Pi4. However, it can run on any Linux os
       * mysql-server (8.0.31-0ubuntu0.22.04.1)
-    
+    - Module
+      * NodeMCU-32S Lua WiFi (ESP-32)
 ## Case Study
   -  ESP32를 활용한 센서데이터 무선 수집, WiFi Provisioning 사용
   - 호흡수, 체온 측정기능 구현. 데이터베이스 저장
