@@ -11,6 +11,8 @@ Hospetter에서 의사와 환자 간의 화상진단이 이루어져야 함.
 ## Contents
 ### mediasoup-webrtc
 
+**app.js**
+
 - 연결 생성
 ```
 io.on('connection', (socket) => {
