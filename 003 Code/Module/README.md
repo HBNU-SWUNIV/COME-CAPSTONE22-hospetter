@@ -1,91 +1,44 @@
 # Module
 
-Hospetter에 사용된 모듈과 코드
+Hospetter는 실시간으로 동물의 상태를 모듈을 통해 자가진단 및 확인이 가능하다.
 
-## Getting Started
+## Contents
+- esp32-gy906
+비접촉 적외선 온도센서 모듈
 
-반려동물을 자가진단하기 위한 모듈과 모듈에서 얻은 데이터를 server에 전송
+- esp32-hx711
+증폭 adc 전류 센서 모듈
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-- WiFiManager
-- HTTPClient
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+- esp32-module
+모듈 안에 장착된 센서들의 데이터(json)를 웹 서버와 교류하기 위한 코드
 
 ```
-Give the example
+// JSON data Settings
+int status_first;
+String jsondata = "";
+StaticJsonBuffer <300> jsonBuffer;
+JsonObject& root = jsonBuffer.createObject();
 ```
 
-And repeat
+
+- esp32-multi-thread-sensors
+체온, 움직임 확인 등 여러 센서를 하나의 모듈 안에서 사용하므로 이를 조정하는 코드 작성
 
 ```
-until finished
+// sensor handler
+TaskHandle_t hx711_handler;
+TaskHandle_t gy906_handler;
+TaskHandle_t rfid_handler;
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+- esp32-test-api
 ```
-Give an example
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
-
+- esp32-rfid
 ```
-Give an example
 ```
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
+- esp32-wifiprovision
+```
+```
