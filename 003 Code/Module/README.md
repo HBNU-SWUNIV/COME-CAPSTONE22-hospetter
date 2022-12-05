@@ -27,18 +27,44 @@ void post_func(void *param){...}
 * 데이터 전송이 처음인지 아닌지를 판별하는 변수
 ```
 int status_first;
-
 ```
-
 
 ### esp32-multi-thread-sensors
-체온, 움직임 확인 등 여러 센서를 하나의 모듈 안에서 사용하므로 이를 조정하는 코드 작성
+* 체온, 움직임 확인 등 여러 센서를 하나의 모듈 안에서 사용하므로 이를 조정하는 코드 작성
 
+* 각 모듈을 초기화
 ```
-// sensor handler
-TaskHandle_t hx711_handler;
-TaskHandle_t gy906_handler;
-TaskHandle_t rfid_handler;
+// hx711 init
+  rtc_clk_cpu_freq_set(RTC_CPU_FREQ_80M);
+  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
+  hx711_prev_data = 0;
+  hx711_now_data = 0;
+  hx711_counter = 0;
+  hx711_now_status = "none";
+  hx711_prev_status = "none";
+
+// gy906 init
+  if (!mlx.begin()) {
+    Serial.println("Error connecting to MLX sensor. Check wiring.");
+    while (1);
+  };
+  gy906_counter = 0;
+  gy906_string = "";
+
+// rfid init
+  rfid.begin(9600, SERIAL_8N1, 36, 13);
+```
+
+* 각 모듈을 통해 데이터 수집
+```
+  xTaskCreatePinnedToCore ( hx711,"hx711", 10000, NULL, 0, &hx711_handler, CORE1 );
+  xTaskCreatePinnedToCore ( gy906,"gy906", 10000, NULL, 0, &gy906_handler, CORE2 );
+  xTaskCreatePinnedToCore ( rfid_func,"rfid", 10000, NULL, 0, &rfid_handler, CORE1 );
+```
+
+* 모은 데이터 전송
+```
+  xTaskCreatePinnedToCore ( post_func,"post_func", 10000, NULL, 0, &post_handler, CORE2 );
 ```
 
 ### esp32-test-api
