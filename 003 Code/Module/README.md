@@ -4,7 +4,7 @@ Hospetter에 사용된 모듈과 코드
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+반려동물을 자가진단하기 위한 모듈과 이를 server에 전송함.
 
 ### Prerequisites
 
