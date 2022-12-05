@@ -19,6 +19,14 @@
 
 ## System Design
   - ### System Requirements
+    * ESP32를 활용한 센서데이터 무선 수집, WiFi Provisioning 사용
+    * 호흡수, 체온 측정기능 구현. 데이터베이스 저장
+    * 3D프린터를 활용한 하우징 제작
+    * MySQL을 사용하는 데이터베이스 구현
+    * 데이터베이스서버와 WAS서버 간 데이터 교환을 위한 API서버 구현
+    * 모니터링 시스템을 구현하는 WAS서버 제작
+  
+  - ### System Dependencies
     - API Server
       * (Hardware) Raspberry Pi4. However, it can run on any Linux os
       * node >= v16.14.2
@@ -51,22 +59,18 @@
   ```sh
   npm start
   ```
-## Case Study
-  -  ESP32를 활용한 센서데이터 무선 수집, WiFi Provisioning 사용
-  - 호흡수, 체온 측정기능 구현. 데이터베이스 저장
-  - 3D프린터를 활용한 하우징 제작
-  - MySQL을 사용하는 데이터베이스 구현
-  - 데이터베이스서버와 WAS서버 간 데이터 교환을 위한 API서버 구현
-  - 모니터링 시스템을 구현하는 WAS서버 제작
-  
+
 ## Conclusion
   - ### 웨어러블 모듈
-    <img src="https://user-images.githubusercontent.com/8403172/205635133-46872ecc-ec18-43c0-af1b-6fb22083978d.jpg" width="70%" height="70%">  
-    <img src="https://user-images.githubusercontent.com/8403172/205685603-2df895d7-8547-4cfb-b384-1304420206f2.gif" width="70%" height="70%">  
-    <img src="https://user-images.githubusercontent.com/8403172/205685638-5606ba37-9869-4f4c-b674-55e4721618d7.gif" width="70%" height="70%">  
+    <img src="https://user-images.githubusercontent.com/8403172/205635133-46872ecc-ec18-43c0-af1b-6fb22083978d.jpg" width="22%" height="22%">  
+    <img src="https://user-images.githubusercontent.com/8403172/205685603-2df895d7-8547-4cfb-b384-1304420206f2.gif" width="30%" height="30%">  
+    <img src="https://user-images.githubusercontent.com/8403172/205685638-5606ba37-9869-4f4c-b674-55e4721618d7.gif" width="30%" height="30%">  
   - ### 모니터링 시스템
-    <img src="https://user-images.githubusercontent.com/8403172/205635469-149729bb-95a2-4c0d-9fa4-495818c8fee2.jpg" width="70%" height="70%">  
-    <img src="https://user-images.githubusercontent.com/8403172/205686786-5abd97ab-b3ef-4395-921f-71ba0e198f2f.png" width="70%" height="70%">
+    <img src="https://user-images.githubusercontent.com/8403172/205635469-149729bb-95a2-4c0d-9fa4-495818c8fee2.jpg" width="30%" height="30%">  
+    <img src="https://user-images.githubusercontent.com/8403172/205686786-5abd97ab-b3ef-4395-921f-71ba0e198f2f.png" width="48%" height="48%">
+    
+  - ### 활용방안
+    * 현재 디지털 온도계, 디지털 청진기 등은 특허로 출원되어있지만 호흡수를 측정하는 디바이스는 없는 상황이며, 이 세가지 기능을 모두 탑재한 제품이 없다. 제품이 온전하게 개발되어 동물병원에 보급할 수 있다고 한다면, 각각의 동물병원이 부담해야 하는 테크니션 고용으로 인한 인건비를 크게 줄일 수 있을것으로 생각된다. 더 나아가 센싱된 데이터들이 정확하고 더 많은 종류의 센싱 데이터를 측정 할 수 있으며, 오랜 기간동안 수 많은 데이터들이 축적된다고 가정하에 머신러닝, 딥러닝 기술을 접목하여 보조적인 수단으로 1차 진단을 내릴 수 있다고 한다면 동물병원 의료 관계자들의 수고를 더 많이 덜 수 있지 않을까 생각된다.
     
 ## Project Outcome
 - ### 2022년학년도 제 11회 정보기술대학 작품전시회 장려상 수상
