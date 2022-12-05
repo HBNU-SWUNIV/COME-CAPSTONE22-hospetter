@@ -1,4 +1,7 @@
 # 한밭대학교 컴퓨터공학과 hospetter팀
+#### 반려동물을 위한 웨어러블 디바이스 및 모니터링 시스템 (Wearable devices and monitoring systems for pets)
+
+
 <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white"><img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white"><img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=Express&logoColor=white"><img src="https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white"><img src="https://img.shields.io/badge/WebRTC-333333?style=for-the-badge&logo=webrtc&logoColor=white"><img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"><img src="https://img.shields.io/badge/Espressif-E7352C?style=for-the-badge&logo=espressif&logoColor=white">
 
 **팀 구성**
@@ -36,6 +39,17 @@
       * mysql-server (8.0.31-0ubuntu0.22.04.1)
     - Module
       * NodeMCU-32S Lua WiFi (ESP-32)
+      
+## Installing and Running
+  - Install API server and WAS
+  ```sh
+  cd {Project Directory Path(API or WAS)}
+  npm install
+  ```
+  - Running Application
+  ```sh
+  npm start
+  ```
 ## Case Study
   -  ESP32를 활용한 센서데이터 무선 수집, WiFi Provisioning 사용
   - 호흡수, 체온 측정기능 구현. 데이터베이스 저장
@@ -47,24 +61,25 @@
 ## Conclusion
   - ### 웨어러블 모듈
     <img src="https://user-images.githubusercontent.com/8403172/205635133-46872ecc-ec18-43c0-af1b-6fb22083978d.jpg" width="70%" height="70%">  
-    
-    
     <img src="https://user-images.githubusercontent.com/8403172/205685603-2df895d7-8547-4cfb-b384-1304420206f2.gif" width="70%" height="70%">  
-    
-    
     <img src="https://user-images.githubusercontent.com/8403172/205685638-5606ba37-9869-4f4c-b674-55e4721618d7.gif" width="70%" height="70%">  
-
   - ### 모니터링 시스템
     <img src="https://user-images.githubusercontent.com/8403172/205635469-149729bb-95a2-4c0d-9fa4-495818c8fee2.jpg" width="70%" height="70%">  
-    
-    
     <img src="https://user-images.githubusercontent.com/8403172/205686786-5abd97ab-b3ef-4395-921f-71ba0e198f2f.png" width="70%" height="70%">
-
-
     
-  
 ## Project Outcome
 - ### 2022년학년도 제 11회 정보기술대학 작품전시회 장려상 수상
      <img src="https://user-images.githubusercontent.com/8403172/205636836-2d109650-7a7a-40fd-a6f2-a71284431e5a.jpg" width="50%" height="50%">
    
+## Reference List
+  - 이진홍, 유성희(2020), 「코로나19 사태로 비추어 본 반려동물 원격진료 도입 가능성에 대한 법적 고찰」, 『의생명과학과법』23, 법학연구소(원광대), pp.113-134 
+  - 정한조, 이정훈, 이지형, 김세윤, 정지원(2020), 「웨어러블 디바이스를 이용한 반려동물 원격 모니터링 시스템」, 『한국컴퓨터정보학회 학술발표논문집』28, 한국컴퓨터정보학회, pp. 281-282
+  - 이민형, 유래현, 김수연, 김경호(2021), 「반려동물 생체신호 측정 시스템에 관한 연구」, 『대한전기학회 학술대회 논문집』, 대한전기학회, pp. 405-406
+  - 박주연, 윤지윤, 이예진, 박서영, 김두열, 이기석(2021), 「반려동물 생체인식 앱」, 『한국컴퓨터정보학회 학술발표논문집』29, 한국컴퓨터정보학회, pp. 351-354
+  - 이병규, 박재곤, 유채은, 유하정(2018), 「IoT를 이용한 반려동물 Healthcare System」, 『한국정보과학회 학술발표논문집』, 한국정보과학회, pp.2226-2228
+  - 유경근(2016), 「반려동물 자가진료 금지에 대한 올바른 이해 - 반려동물 자가진료 금지의 의미와 범위, 그리고 목적」, 『대한수의사회지 제 52권』8, 대한수의사회, pp.462-466
+  - 김종수. 무선 청진기를 포함하는 웨어러블 장치(WEARABLE DEVICE HAVING WIRELESS STETHOSCOPE), 특허 출원번호 1020180128023, 출원일 2018.10.25., 등록일 2019.03.05.
+  - 주식회사 케어식스, 심전도와 심탄도 동시 측정이 가능한 반려견용 심장운동 측정 장치(Dog cardiometry device for simultaneous measurement of EKG and ECG), 특허 출원번호 1020190128260
+  - 주식회사 케어식스, 반려견의 활동량과 심박호흡등 생체신호 그리고 임상신호에 기반한 질병예측 방법 및 장치(Disease Prediction Method and Apparatus Based on the Activity of Dogs, Bio-signal), 특허 출원번호 1020190128299
+
 
