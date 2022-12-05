@@ -5,27 +5,44 @@ Hospetter에서 의사와 환자 간의 화상진단이 이루어져야 함.
 이는, mediasoup-webrtc를 사용하여 구현
 
 ## 2. 웹 서비스
-backend: node.js를 이용하여 hospetter의 회원을 생성 및 관리하며, 각 회원에게 맞는 정보 제공
-frontend: 주로 bootstrap을 이용하여 디자인
+- backend: node.js를 이용하여 hospetter의 회원을 생성 및 관리하며, 각 회원에게 맞는 정보 제공
+- frontend: 주로 bootstrap을 이용하여 디자인
 
 ## Contents
 ### mediasoup-webrtc
 
-**mediasoup-webrtc**
-webrtc service using mediasoup
-
-- 연결
+- 연결 생성
 ```
 io.on('connection', (socket) => {
-    해당 룸의 id가 이미 존재하는지 확인
+  socket.on('createRoom', async ({ room_id }, callback) => {
+    if (roomList.has(room_id)) {
+      callback('already exists')
+    } else {
+      console.log('Created room', { room_id: room_id })
 
-    존재하지 않는다면,
-        - 룸 생성
+      let worker = await getMediasoupWorker()
+      roomList.set(room_id, new Room(room_id, worker, io))
+      callback(room_id)
+    }
+  })
+```
 
-        - getMideasoupWorker로부터 워커 받아옴
+- 연결 응답
+```
+  socket.on('join', ({ room_id, name }, cb) => {
+    console.log('User joined', {
+      room_id: room_id,
+      name: name
+    })
 
-        - 룸 id 설정
+    if (!roomList.has(room_id)) {
+      return cb({
+        error: 'Room does not exist'
+      })
+    }
 
-        - 소켓정보전달
-})
+    roomList.get(room_id).addPeer(new Peer(socket.id, name))
+    socket.room_id = room_id
+    cb(roomList.get(room_id).toJson())
+  })
 ```
