@@ -10,14 +10,23 @@ Hospetter는 실시간으로 동물의 상태를 모듈을 통해 자가진단 �
 증폭 adc 전류 센서 모듈
 
 - esp32-module
-모듈 안에 장착된 센서들의 데이터(json)를 웹 서버와 교류하기 위한 코드
+* 모듈 안에 장착된 센서들의 데이터(json)를 웹 서버와 교류하기 위한 코드
 
 ```
-// JSON data Settings
-int status_first;
 String jsondata = "";
 StaticJsonBuffer <300> jsonBuffer;
 JsonObject& root = jsonBuffer.createObject();
+```
+
+* 각 모듈에서 모아진 데이터들을 json을 이용해 서버로 전송한다.
+```
+void post_func(void *param){...}
+```
+
+* 데이터 전송이 처음인지 아닌지를 판별하는 변수
+```
+int status_first;
+
 ```
 
 
