@@ -10,6 +10,9 @@ Hospetter에 사용된 모듈과 코드
 
 What things you need to install the software and how to install them
 
+- WiFiManager
+- HTTPClient
+
 ```
 Give examples
 ```
