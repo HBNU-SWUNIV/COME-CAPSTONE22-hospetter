@@ -4,7 +4,7 @@ Hospetter에 사용된 모듈과 코드
 
 ## Getting Started
 
-반려동물을 자가진단하기 위한 모듈과 이를 server에 전송함.
+반려동물을 자가진단하기 위한 모듈과 모듈에서 얻은 데이터를 server에 전송
 
 ### Prerequisites
 
