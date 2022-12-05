@@ -35,12 +35,22 @@
       * mysql-server (8.0.31-0ubuntu0.22.04.1)
     
 ## Case Study
-  - ### Description
-  
+  -  ESP32를 활용한 센서데이터 무선 수집, WiFi Provisioning 사용
+  - 호흡수, 체온 측정기능 구현. 데이터베이스 저장
+  - 3D프린터를 활용한 하우징 제작
+  - MySQL을 사용하는 데이터베이스 구현
+  - 데이터베이스서버와 WAS서버 간 데이터 교환을 위한 API서버 구현
+  - 모니터링 시스템을 구현하는 WAS서버 제작
   
 ## Conclusion
-  - ### OOO
-  - ### OOO
+  - ### 웨어러블 모듈
+    <img src="https://user-images.githubusercontent.com/8403172/205635133-46872ecc-ec18-43c0-af1b-6fb22083978d.jpg" width="50%" height="50%">
+  - ### 모니터링 시스템
+    <img src="https://user-images.githubusercontent.com/8403172/205635469-149729bb-95a2-4c0d-9fa4-495818c8fee2.jpg" width="50%" height="50%">
+    
   
 ## Project Outcome
-- ### 20XX 년 OO학술대회 
+- ### 2022년 제 11회 정보기술대학 작품전시회 장려상 수상
+     <img src="https://user-images.githubusercontent.com/8403172/205636836-2d109650-7a7a-40fd-a6f2-a71284431e5a.jpg" width="50%" height="50%">
+   
+
