@@ -1,87 +1,105 @@
-# Project Title
+# API Server
 
-One Paragraph of project description goes here
+hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공하는 기능에 한하여 접근할 수 있도록 합니다.
 
-## Getting Started
+# 제공 기능
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+* recent_data :: GET
 
-### Prerequisites
+* recent_animal_data :: GET
 
-What things you need to install the software and how to install them
+* get_sensor_data :: POST
 
+* get_temp_breath :: POST
+
+* get_rfid_info :: POST
+
+* search :: POST
+
+* recent_rfid :: GET
+
+* animal_status :: GET
+
+* query :: GET
+
+* set_owner :: POST
+
+### 사용 예제
+
+클라이언트 측에선 아래와 같은 경로로 API Server에 접근합니다.
+
+```javascript
+/api/제공 기능
 ```
-Give examples
-```
+아래와 같이 POST 요청과 함께 전송된 데이터를 조합한 SQL 생성 후 DB서버에 접근합니다.
 
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+```javascript
+console.log(req.body);
+  jsondata = req.body; //POST의 body로 넘어온 JSON 데이터
+  rfid = jsondata.rfid;
+  console.log(rfid);
+  
+  try{
+    sql = "select * from animal where rfid='" + rfid + "' limit 1"
+    data = await send_query(sql); //DB서버에 SQL 전송
+    res.send(data);
+  }catch (e){
+    console.log("cant't save data. error : ", e);
+  }
 ```
 
-## Deployment
+## 외부 API Server 활용
 
-Add additional notes about how to deploy this on a live system
+```javascript
+  //sql : json format. req.body.sql
+  key = "API키";
+  data = req.body;
+  rfid = data.rfid;
+  owner = data.owner;
 
-## Built With
+  if(rfid != "" && owner !=""){
+    console.log("data is not null. ok!");
+    try{
+      const options = {
+        uri: "http://apis.data.go.kr/1543061/animalInfoSrvc/animalInfo",
+        qs:{
+          serviceKey : key, //API 키
+          dog_reg_no : rfid, //등록 조회할 입력받은 강아지 RFID
+          owner_nm : owner //입력받은 주인 이름
+        }
+      };
+      request(options,async function(err,response,body){
+        dat = xmljs.xml2json(body, {compact: true, spaces: 4});
+        dat = JSON.parse(dat).response.body.item;
+        console.log(dat);
+        
+        dog_name = dat.dogNm._text; //강아지 이름
+        dog_sex = dat.sexNm._text; //성별
+        dog_kind = dat.kindNm._text; //종
+        dog_neuter = dat.neuterYn._text; //중성화 여부
+        dog_org = dat.orgNm._text; //등록기관명
+        dog_office = dat.officeTel._text; //기관 전화번호
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+        //SQL문 DB서버로 전송
+        try{
+          sql = "insert into animal(rfid, owner, name, sex, kind, neuter, org, office)values('";
+          sql += rfid + "','" + owner + "','" + dog_name + "','" + dog_sex + "','";
+          sql += dog_kind + "','" + dog_neuter + "','" + dog_org + "','" + dog_office + "')";
+          result = await send_query(sql);
+          res.send("ok");
+        }catch (e){
+          console.log("cant't handle the query", e);
+        }
+      })
+    }catch{}
+  }
+  else{
+    res.send("no");
+  }
+```
 
-## Contributing
+## README
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+1.https://www.animal.go.kr/front/awtis/record/recordConfirmList.do?menuNo=2000000011
 
-## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
