@@ -1,6 +1,17 @@
-# API Server
+## API Server
 
 hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공하는 기능에 한하여 접근할 수 있도록 합니다.
+
+# Installing and Running
+  - Install API server and WAS
+  ```sh
+  cd {Project Directory Path(API or WAS)}
+  npm install
+  ```
+  - Running Application
+  ```sh
+  npm start
+  ```
 
 # 제공 기능
 
