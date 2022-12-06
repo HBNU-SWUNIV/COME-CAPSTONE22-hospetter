@@ -18,7 +18,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 * **recent_data :: *GET***
 
     <details>
-    <summary>Response<b>(접기/펼치기)</b></summary>
+    <summary>Response</summary>
     <div markdown="1">
 
     ```json
@@ -42,7 +42,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 * **recent_animal_data :: *GET***
 
     <details>
-    <summary>Response<b>(접기/펼치기)</b></summary>
+    <summary>Response</summary>
     <div markdown="1">
       
     ```json
@@ -64,7 +64,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 * **recent_rfid :: *GET***
 
     <details>
-    <summary>Response<b>(접기/펼치기)</b></summary>
+    <summary>Response</summary>
     <div markdown="1">
       
     ```json
@@ -81,7 +81,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 * **animal_status :: *GET***
 
     <details>
-    <summary>Response<b>(접기/펼치기)</b></summary>
+    <summary>Response</summary>
     <div markdown="1">
       
     ```json
@@ -98,7 +98,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 * **get_sensor_data :: *POST***
 
     <details>
-    <summary>Request<b>(접기/펼치기)</b></summary>
+    <summary>Request</summary>
     <div markdown="1">
       
     ```c
@@ -108,7 +108,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
     </details>
     
     <details>
-    <summary>Response<b>(접기/펼치기)</b></summary>
+    <summary>Response</summary>
     <div markdown="1">
       
     ```js
@@ -120,7 +120,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 * **get_temp_breath :: *POST***
 
     <details>
-    <summary>Request<b>(접기/펼치기)</b></summary>
+    <summary>Request</summary>
     <div markdown="1">
       
     ```json
@@ -133,7 +133,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
     </details>
     
     <details>
-    <summary>Response<b>(접기/펼치기)</b></summary>
+    <summary>Response</summary>
     <div markdown="1">
       
     ```json
@@ -145,7 +145,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 * **get_rfid_info :: *POST***
 
     <details>
-    <summary>Requeste<b>(접기/펼치기)</b></summary>
+    <summary>Requeste</summary>
     <div markdown="1">
       
     ```json
@@ -157,7 +157,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
     </details>
   
     <details>
-    <summary>Response<b>(접기/펼치기)</b></summary>
+    <summary>Response</summary>
     <div markdown="1">
       
     ```json
@@ -177,7 +177,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 * **search :: *POST***
 
     <details>
-    <summary>Request<b>(접기/펼치기)</b></summary>
+    <summary>Request</summary>
     <div markdown="1">
       
     ```json
@@ -189,7 +189,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
     </details>
   
     <details>
-    <summary>Response<b>(접기/펼치기)</b></summary>
+    <summary>Response</summary>
     <div markdown="1">
     
     ```json
@@ -201,7 +201,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 * **set_owner :: *POST***
 
     <details>
-    <summary>Request<b>(접기/펼치기)</b></summary>
+    <summary>Request</summary>
     <div markdown="1">
       
     ```json
@@ -214,7 +214,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
     </details>
   
     <details>
-    <summary>Response<b>(접기/펼치기)</b></summary>
+    <summary>Response</summary>
     <div markdown="1">
       
     ```js
