@@ -82,13 +82,80 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 
 * get_sensor_data :: POST
 
+  - Request Data
+  
+  ```c
+  xTaskCreatePinnedToCore ( post_func,"post_func", 10000, NULL, 0, &post_handler, CORE2 ); //Transfer from Arduino to data api server in json format by POST method 
+  ```
+  
+  - Response Data Example
+
+  ```js
+  "ok"
+  ```
+
 * get_temp_breath :: POST
+
+  - Request Data
+  
+  ```json
+  {
+    "type":"temp" //"temp" or "breath"
+    ,"rfid":"00000000000000"
+}
+  ```
+  
+  - Response Data Example
+
+  ```json
+  [{"temp":37},{"temp":39.1},{"temp":37.7},{"temp":38.9},{"temp":38.6},{"temp":37},{"temp":37.9},{"temp":38.3},{"temp":38.5},{"temp":38.3},{"temp":38.9},{"temp":39},{"temp":38.3},{"temp":38.7},{"temp":38.6},{"temp":38.2},...]
+  ```
 
 * get_rfid_info :: POST
 
+  - Request Data
+  
+  ```json
+  {
+    "rfid":"410100008131753"
+}
+  ```
+  
+  - Response Data Example
+
+  ```json
+  [{
+  "rfid":"410100008131753","owner":"정봉경","name":"아롱","sex":"수컷","kind":"푸들","neuter":"중성","org":"세종특별자치시","office":"044-300-7615"
+  }]
+  ```
+
 * search :: POST
 
+  - Request Data
+  
+  ```c
+  
+  ```
+  
+  - Response Data Example
+
+  ```js
+  
+  ```
+
 * set_owner :: POST
+
+  - Request Data
+  
+  ```c
+  
+  ```
+  
+  - Response Data Example
+
+  ```js
+  
+  ```
 
 ### 사용 예제
 
