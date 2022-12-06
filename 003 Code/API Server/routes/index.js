@@ -138,7 +138,7 @@ router.post('/api/query', async function(req, res) {
 
 router.post('/api/set_owner', async function(req, res) {
   //sql : json format. req.body.sql
-  key = "8U2ibv92GlQZ8ksIKCY+yePbTPIgkcCddyLCvdLIXc4aBoYFxD8+2ytviCiYY5gGs8xHhSUNZ0yRA5rgxGwc3w==";
+  key = "User API KEY";
   data = req.body;
   rfid = data.rfid;
   owner = data.owner;
