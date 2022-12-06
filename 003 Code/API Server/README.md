@@ -297,8 +297,14 @@ console.log(req.body);
   }
 ```
 
+  * 외부 API Server 명세
+  
+  <img src="https://user-images.githubusercontent.com/65393001/205838814-49f15e11-5d1f-4da5-bf37-0349d4a31c53.PNG" width="60%" height="60%">
+
+  <img src="https://user-images.githubusercontent.com/65393001/205838706-8b534858-9929-4ef7-a903-3c0b64f04538.PNG" width="60%" height="60%"> 
+
 ## README
 
-1.https://www.animal.go.kr/front/awtis/record/recordConfirmList.do?menuNo=2000000011
+1.https://www.data.go.kr/data/15098913/openapi.do
 
 
