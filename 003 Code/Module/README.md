@@ -67,10 +67,6 @@ int status_first;
   xTaskCreatePinnedToCore ( post_func,"post_func", 10000, NULL, 0, &post_handler, CORE2 );
 ```
 
-### esp32-test-api
-```
-```
-
 ### esp32-rfid
 ```
 ```
