@@ -15,158 +15,213 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 
 # 제공 기능
 
-* recent_data :: GET
+* **recent_data :: *GET***
 
-  - Response Data Example
+    <details>
+    <summary>Response<b>(접기/펼치기)</b></summary>
+    <div markdown="1">
+
+    ```json
+     {
+          "rfid": "0000000000000",
+          "owner": "김현민",
+          "name": "나",
+          "sex": "남",
+          "kind": "인간",
+          "neuter": "NO",
+          "org": "대전",
+          "office": "042",
+          "date": "2022-11-30_12:42:28",
+          "breath": 186,
+          "temp": 24.43
+      }, ... // 2 more elements, limit 3
+    ```
+    </div>
+    </details>
+
+* **recent_animal_data :: *GET***
+
+    <details>
+    <summary>Response<b>(접기/펼치기)</b></summary>
+    <div markdown="1">
+      
+    ```json
+    {
+          "rfid": "0000000000000",
+          "owner": "정봉경",
+          "name": "아롱",
+          "sex": "수컷",
+          "kind": "푸들",
+          "neuter": "중성",
+          "date": "2080-11-23_10:37:03",
+          "breath": 30,
+          "temp": 37.5
+      }, // ... more
+    ```
+    </div>
+    </details>
+    
+* **recent_rfid :: *GET***
+
+    <details>
+    <summary>Response<b>(접기/펼치기)</b></summary>
+    <div markdown="1">
+      
+    ```json
+    {
+          "date": "2022-11-30_13:59:31",
+          "breath": 65,
+          "temp": 31.19,
+          "rfid": ""
+      }
+    ```
+    </div>
+    </details>
+      
+* **animal_status :: *GET***
+
+    <details>
+    <summary>Response<b>(접기/펼치기)</b></summary>
+    <div markdown="1">
+      
+    ```json
+    {
+          "temp1": 4095,
+          "temp2": 25256,
+          "breath1": 24457,
+          "breath2": 4894
+      }
+    ```
+    </div>
+    </details>
+      
+* **get_sensor_data :: *POST***
+
+    <details>
+    <summary>Request<b>(접기/펼치기)</b></summary>
+    <div markdown="1">
+      
+    ```c
+    xTaskCreatePinnedToCore ( post_func,"post_func", 10000, NULL, 0, &post_handler, CORE2 ); //Transfer from Arduino to data api server in json format by POST method 
+    ```
+    </div>
+    </details>
+    
+    <details>
+    <summary>Response<b>(접기/펼치기)</b></summary>
+    <div markdown="1">
+      
+    ```js
+    "ok"
+    ```
+    </div>
+    </details>
+      
+* **get_temp_breath :: *POST***
+
+    <details>
+    <summary>Request<b>(접기/펼치기)</b></summary>
+    <div markdown="1">
+      
+    ```json
+    {
+      "type":"temp" //"temp" or "breath"
+      ,"rfid":"00000000000000"
+      }
+    ```
+    </div>
+    </details>
+    
+    <details>
+    <summary>Response<b>(접기/펼치기)</b></summary>
+    <div markdown="1">
+      
+    ```json
+    [{"temp":37},{"temp":39.1},{"temp":37.7},{"temp":38.9},{"temp":38.6},{"temp":37},{"temp":37.9},{"temp":38.3},{"temp":38.5},{"temp":38.3},{"temp":38.9},{"temp":39}, {"temp":38.3},{"temp":38.7},{"temp":38.6},{"temp":38.2},...]
+    ```
+    </div>
+    </details>
+    
+* **get_rfid_info :: *POST***
+
+    <details>
+    <summary>Requeste<b>(접기/펼치기)</b></summary>
+    <div markdown="1">
+      
+    ```json
+    {
+      "rfid":"000000000000000"
+      }
+    ```
+    </div>
+    </details>
   
-  ```json
-   {
-        "rfid": "0000000000000",
-        "owner": "김현민",
-        "name": "나",
-        "sex": "남",
-        "kind": "인간",
-        "neuter": "NO",
-        "org": "대전",
-        "office": "042",
-        "date": "2022-11-30_12:42:28",
-        "breath": 186,
-        "temp": 24.43
-    }, ... // 2 more elements, limit 3
-  ```
-
-* recent_animal_data :: GET
-
-  - Response Data Example
-  
-  ```json
-  {
-        "rfid": "0000000000000",
-        "owner": "정봉경",
-        "name": "아롱",
-        "sex": "수컷",
-        "kind": "푸들",
-        "neuter": "중성",
-        "date": "2080-11-23_10:37:03",
-        "breath": 30,
-        "temp": 37.5
-    }, // ... more
-  ```
-  
-* recent_rfid :: GET
-
-
-  - Response Data Example
-  
-  ```json
-  {
-        "date": "2022-11-30_13:59:31",
-        "breath": 65,
-        "temp": 31.19,
-        "rfid": ""
+    <details>
+    <summary>Response<b>(접기/펼치기)</b></summary>
+    <div markdown="1">
+      
+    ```json
+    {"rfid":"000000000000000"
+    ,"owner":"정봉경"
+    ,"name":"아롱"
+    ,"sex":"수컷"
+    ,"kind":"푸들"
+    ,"neuter":"중성"
+    ,"org":"세종특별자치시"
+    ,"office":"044-000-0000"
     }
-  ```
+    ```
+    </div>
+    </details>
 
-* animal_status :: GET
+* **search :: *POST***
 
-  - Response Data Example
+    <details>
+    <summary>Request<b>(접기/펼치기)</b></summary>
+    <div markdown="1">
+      
+    ```json
+    {
+      "data":"정봉경" //owner name
+      }
+    ```
+    </div>
+    </details>
   
-  ```json
-  {
-        "temp1": 4095,
-        "temp2": 25256,
-        "breath1": 24457,
-        "breath2": 4894
-    }
-  ```
+    <details>
+    <summary>Response<b>(접기/펼치기)</b></summary>
+    <div markdown="1">
+    
+    ```json
+    [{"rfid":"00000000000000","date":"2022-11-23_10:37:03","breath":29,"temp":37,"owner":"정봉경","name":"아롱","sex":"수컷","kind":"푸들","neuter":"중성","org":"세종특별자치시","office":"044-000-0000"},...]
+    ```
+     /div>
+    </details>
 
-* get_sensor_data :: POST
+* **set_owner :: *POST***
 
-  - Request Data
+    <details>
+    <summary>Request<b>(접기/펼치기)</b></summary>
+    <div markdown="1">
+      
+    ```json
+    {
+      "rfid":"000000000000000"
+      ,"owner":"김현민"
+      }
+    ```
+    </div>
+    </details>
   
-  ```c
-  xTaskCreatePinnedToCore ( post_func,"post_func", 10000, NULL, 0, &post_handler, CORE2 ); //Transfer from Arduino to data api server in json format by POST method 
-  ```
-  
-  - Response Data Example
-
-  ```js
-  "ok"
-  ```
-
-* get_temp_breath :: POST
-
-  - Request Data
-  
-  ```json
-  {
-    "type":"temp" //"temp" or "breath"
-    ,"rfid":"00000000000000"
-    }
-  ```
-  
-  - Response Data Example
-
-  ```json
-  [{"temp":37},{"temp":39.1},{"temp":37.7},{"temp":38.9},{"temp":38.6},{"temp":37},{"temp":37.9},{"temp":38.3},{"temp":38.5},{"temp":38.3},{"temp":38.9},{"temp":39},{"temp":38.3},{"temp":38.7},{"temp":38.6},{"temp":38.2},...]
-  ```
-
-* get_rfid_info :: POST
-
-  - Request Data
-  
-  ```json
-  {
-    "rfid":"000000000000000"
-    }
-  ```
-  
-  - Response Data Example
-
-  ```json
-  {"rfid":"000000000000000"
-  ,"owner":"정봉경"
-  ,"name":"아롱"
-  ,"sex":"수컷"
-  ,"kind":"푸들"
-  ,"neuter":"중성"
-  ,"org":"세종특별자치시"
-  ,"office":"044-000-0000"
-  }
-  ```
-
-* search :: POST
-
-  - Request Data
-  
-  ```json
-  {
-    "data":"정봉경" //owner name
-    }
-  ```
-  
-  - Response Data Example
-
-  ```json
-  [{"rfid":"00000000000000","date":"2022-11-23_10:37:03","breath":29,"temp":37,"owner":"정봉경","name":"아롱","sex":"수컷","kind":"푸들","neuter":"중성","org":"세종특별자치시","office":"044-000-0000"},...]
-  ```
-
-* set_owner :: POST
-
-  - Request Data
-  
-  ```json
-  {
-    "rfid":"000000000000000"
-    ,"owner":"김현민"
-    }
-  ```
-  
-  - Response Data Example
-
-  ```js
-  "ok" or "no" //If the data in the request is registered in the government API, insert it into the DB and respond "ok"
-  ```
+    <details>
+    <summary>Response<b>(접기/펼치기)</b></summary>
+    <div markdown="1">
+      
+    ```js
+    "ok" or "no" //If the data in the request is registered in the government API, insert it into the DB and respond "ok"
+    ```
+    </div>
+    </details>
 
 ### 사용 예제
 
