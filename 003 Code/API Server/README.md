@@ -17,11 +17,11 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 
 * recent_data :: GET
 
-  - Response Example Data
+  - Response Data Example
   
   ```json
    {
-        "rfid": "03840000000261",
+        "rfid": "0000000000000",
         "owner": "김현민",
         "name": "나",
         "sex": "남",
@@ -37,6 +37,49 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 
 * recent_animal_data :: GET
 
+  - Response Data Example
+  
+  ```json
+  {
+        "rfid": "0000000000000",
+        "owner": "정봉경",
+        "name": "아롱",
+        "sex": "수컷",
+        "kind": "푸들",
+        "neuter": "중성",
+        "date": "2080-11-23_10:37:03",
+        "breath": 30,
+        "temp": 37.5
+    }, // ... more
+  ```
+  
+* recent_rfid :: GET
+
+
+  - Response Data Example
+  
+  ```json
+  {
+        "date": "2022-11-30_13:59:31",
+        "breath": 65,
+        "temp": 31.19,
+        "rfid": ""
+    }
+  ```
+
+* animal_status :: GET
+
+  - Response Data Example
+  
+  ```json
+  {
+        "temp1": 4095,
+        "temp2": 25256,
+        "breath1": 24457,
+        "breath2": 4894
+    }
+  ```
+
 * get_sensor_data :: POST
 
 * get_temp_breath :: POST
@@ -44,12 +87,6 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 * get_rfid_info :: POST
 
 * search :: POST
-
-* recent_rfid :: GET
-
-* animal_status :: GET
-
-* query :: GET
 
 * set_owner :: POST
 
