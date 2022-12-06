@@ -17,6 +17,24 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 
 * recent_data :: GET
 
+  - Response Example Data
+  
+  '''json
+   {
+        "rfid": "03840000000261",
+        "owner": "김현민",
+        "name": "나",
+        "sex": "남",
+        "kind": "인간",
+        "neuter": "NO",
+        "org": "대전",
+        "office": "042",
+        "date": "2022-11-30_12:42:28",
+        "breath": 186,
+        "temp": 24.43
+    }, ... // 2 more elements, limit 3
+  '''
+
 * recent_animal_data :: GET
 
 * get_sensor_data :: POST
