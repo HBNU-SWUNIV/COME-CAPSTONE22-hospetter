@@ -8,6 +8,17 @@ Hospetter에서 의사와 환자 간의 화상진단이 이루어져야 함.
 - backend: node.js를 이용하여 hospetter의 회원을 생성 및 관리하며, 각 회원에게 맞는 정보 제공
 - frontend: 주로 bootstrap을 이용하여 디자인
 
+## Installing and Running
+  - Install API server and WAS
+  ```sh
+  cd {Project Directory Path(API or WAS)}
+  npm install
+  ```
+  - Running Application
+  ```sh
+  npm start
+  ```
+
 ## Contents
 
 ### mediasoup-webrtc
