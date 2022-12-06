@@ -19,7 +19,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
 
   - Response Example Data
   
-  '''json
+  ```json
    {
         "rfid": "03840000000261",
         "owner": "김현민",
@@ -33,7 +33,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
         "breath": 186,
         "temp": 24.43
     }, ... // 2 more elements, limit 3
-  '''
+  ```
 
 * recent_animal_data :: GET
 
