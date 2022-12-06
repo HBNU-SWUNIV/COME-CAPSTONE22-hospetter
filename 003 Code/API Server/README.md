@@ -102,7 +102,7 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
   {
     "type":"temp" //"temp" or "breath"
     ,"rfid":"00000000000000"
-}
+    }
   ```
   
   - Response Data Example
@@ -117,44 +117,55 @@ hospetter의 API Server는 DB서버의 데이터를 클라이언트에게 제공
   
   ```json
   {
-    "rfid":"410100008131753"
-}
+    "rfid":"000000000000000"
+    }
   ```
   
   - Response Data Example
 
   ```json
-  [{
-  "rfid":"410100008131753","owner":"정봉경","name":"아롱","sex":"수컷","kind":"푸들","neuter":"중성","org":"세종특별자치시","office":"044-300-7615"
-  }]
+  {"rfid":"000000000000000"
+  ,"owner":"정봉경"
+  ,"name":"아롱"
+  ,"sex":"수컷"
+  ,"kind":"푸들"
+  ,"neuter":"중성"
+  ,"org":"세종특별자치시"
+  ,"office":"044-000-0000"
+  }
   ```
 
 * search :: POST
 
   - Request Data
   
-  ```c
-  
+  ```json
+  {
+    "data":"정봉경" //owner name
+    }
   ```
   
   - Response Data Example
 
-  ```js
-  
+  ```json
+  [{"rfid":"00000000000000","date":"2022-11-23_10:37:03","breath":29,"temp":37,"owner":"정봉경","name":"아롱","sex":"수컷","kind":"푸들","neuter":"중성","org":"세종특별자치시","office":"044-000-0000"},...]
   ```
 
 * set_owner :: POST
 
   - Request Data
   
-  ```c
-  
+  ```json
+  {
+    "rfid":"000000000000000"
+    ,"owner":"김현민"
+    }
   ```
   
   - Response Data Example
 
   ```js
-  
+  "ok" or "no" //If the data in the request is registered in the government API, insert it into the DB and respond "ok"
   ```
 
 ### 사용 예제
