@@ -20,12 +20,34 @@
 ## System Design
   - ### System Requirements
     * ESP32를 활용한 센서데이터 무선 수집, WiFi Provisioning 사용
+        * 모듈의 성능/기능을 고려하여 Espressif 사의 IoT 임베디드 SoC 칩 ESP32 사용
+        * ESP32의 듀얼코어를 통해 데이터 수집과 송신을 동시에 수행
+        * ESP32의 WiFi모듈을 통해 인터넷 환경에 연결
+        * WiFi Provisioning을 구현하여 사용자가 시스템에서 손쉽게 IT 인프라를 설정 할 수 있도록 함
+        
     * 호흡수, 체온 측정기능 구현. 데이터베이스 저장
+      * RFID리더 모듈을 활용하여 반려동물의 생체 인식칩을 인식함
+      * 장력측정(로드셀:hx711)을 활용하여 모듈의 밴드부분의 장력을 측정, 이를 활용하여 호흡수를 검출
+      * 적외선 온도센서(gy906)를 활용하여 모듈 하우징 아랫부분의 체온을 측정, 이를 활용하여 반려동물의 체온을 검출
+      * 검출된 센싱데이터는 수집과 동시에 json화 하게되고, 일정 주기에 따라 API서버로 전송됨.
+      
     * 3D프린터를 활용한 하우징 제작
+      * <img src="https://user-images.githubusercontent.com/8403172/206904207-3b2ee388-299d-4d3d-a258-060841c020d0.png" width="30%" height="30%">
+      
     * MySQL을 사용하는 데이터베이스 구현
+      * MySQL과 phpMyAdmin(DBMS)를 활용하여 센싱데이터, 반려동물 정보를 저장
+      
     * 데이터베이스서버와 WAS서버 간 데이터 교환을 위한 API서버 구현
+      * Node.js의 프레임워크중 하나인 Express를 활용하여 api서버 구현
+      * api서버는 모듈에서 전송해온 데이터를 데이터베이스 서버에 저장
+      * api서버는 WAS서버에서 요청해오는 데이터를 데이터베이스를 호출하여 전송
+
     * 모니터링 시스템을 구현하는 WAS서버 제작
-  
+      * Node.js의 프레임워크중 하나인 Express를 활용하여 api서버 구현
+      * 반려동물 등록 기능은 모듈을 통해 데이터베이스 서버에 저장된 반려동물의 RFID값을 참조
+      * 반려동물 모니터링 기능은 데이터베이스 서버에 저장된 반려동물 정보와 센싱데이터 정보를 JOIN하여 테이블로 출력
+      * 테이블 외에 도넛차트, 꺾은선 그래프를 통해 반려동물의 정상/비정상 여부를 시각화
+      
   - ### System Dependencies
     - API Server
       * (Hardware) Raspberry Pi4. However, it can run on any Linux os
